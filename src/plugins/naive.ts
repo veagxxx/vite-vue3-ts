@@ -1,0 +1,57 @@
+import { create, NAutoComplete, NAvatar, NBackTop, NButton, NCard, NCode, NCol, NCollapse, NCollapseItem, NCollapseTransition, NConfigProvider, NDataTable, NDatePicker, NDialog, NDialogProvider, NDropdown, NEllipsis, NForm, NFormItem, NGlobalStyle, NGrid, NGridItem, NH1, NIcon, NImage, NInput, NLayout, NLayoutContent, NLayoutFooter, NLayoutHeader, NLayoutSider, NList, NListItem, NLoadingBarProvider, NMenu, NMessageProvider, NNotificationProvider, NResult, NRow, NScrollbar, NSpace, NSpin, NTable, NText, NThing, useMessage, useNotification } from 'naive-ui';
+import { NUiInstance } from 'naive-ui/lib/create';
+
+const naive: NUiInstance = create({
+  components: [
+    NButton,
+    NIcon,
+    NScrollbar,
+    NForm,
+    NFormItem,
+    NInput,
+    NCol,
+    NRow,
+    NCard,
+    useMessage,
+    NMessageProvider,
+    NLayout,
+    NLayoutHeader,
+    NLayoutContent,
+    NLayoutFooter,
+    NLayoutSider,
+    NText,
+    NImage,
+    NH1,
+    NGrid,
+    NGridItem,
+    NConfigProvider,
+    NSpace,
+    NDatePicker,
+    NGlobalStyle,
+    NDropdown,
+    NAvatar,
+    NMenu,
+    NLoadingBarProvider,
+    NResult,
+    NScrollbar,
+    NDialog,
+    NDialogProvider,
+    NBackTop,
+    NList,
+    NListItem,
+    NThing,
+    NTable,
+    NDataTable,
+    NEllipsis,
+    NCode,
+    NCollapse,
+    NCollapseItem,
+    NCollapseTransition,
+    NAutoComplete,
+    NSpin,
+    NNotificationProvider,
+    useNotification
+  ]
+})
+
+export default naive;
