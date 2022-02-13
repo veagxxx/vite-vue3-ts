@@ -5,8 +5,8 @@ interface LoginUser {
   password: string
 }
 export const loginUser = ref<LoginUser>({
-  email: "",
-  password: ""
+  email: "admin@qq.com",
+  password: "123456"
 })
 interface LoginRule {
   email: ({

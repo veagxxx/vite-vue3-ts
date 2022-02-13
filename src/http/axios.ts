@@ -7,7 +7,7 @@ interface IAxiosConfig {
   timeout: number;
 }
 const config: IAxiosConfig = {
-  baseUrl: 'http:localhost:8088/api',
+  baseUrl: 'http:localhost:8099/api',
   timeout: 3000000
 }
 class HttpRequest {

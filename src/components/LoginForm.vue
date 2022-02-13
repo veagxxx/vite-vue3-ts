@@ -23,7 +23,7 @@
     formRef.value.validate(async (errors: any) => {
       if (!errors) {
         emits('changeLoading')
-        const res = await UserService.loginVerify(loginUser)
+        const res: any = await UserService.loginVerify(loginUser)
         if (res.code == 200) {
           state.dispatch(SETTOKEN, res.token)
           message.success('验证成功')

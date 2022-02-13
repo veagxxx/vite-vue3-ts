@@ -12,7 +12,7 @@ export interface ILoginParams {
   password: string;
 }
 // 获取用户信息
-const getUserList = (): Promise<unknown> => {
+const getUserList = (): Promise<any> => {
   return new Promise((resolve, reject) => {
     http.get<IUserData[]>('/api/users')
     .then((result: IResponseData<IUserData[]>) => {

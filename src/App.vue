@@ -3,7 +3,7 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // import HelloWorld from '@/components/HelloWorld.vue'
 import { onMounted } from 'vue';
-import MessageApi from './pages/MessageApi.vue';
+import MessageApi from '@/pages/MessageApi.vue';
 </script>
 
 <template>
