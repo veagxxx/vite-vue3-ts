@@ -17,7 +17,10 @@
     })
     state.dispatch(SETARTICLEDATA, item)
   }
-  const articleData = reactive({
+  interface IArticleData {
+    queryList: IArticleResultData[]
+  }
+  const articleData = reactive<IArticleData>({
     queryList: [{
       articleContent: "",
       articleId: 1,
@@ -25,8 +28,6 @@
       author: "",
       code: "",
       comments: [],
-      email: "",
-      phoneNo: "",
       publishTime: "",
       thumbs: []
     }]
@@ -47,39 +48,41 @@
             :key="nIndex + 'at'"
             class="pointer"
           >
-            <n-thing :title="nItem.articleTitle">
-              <template #description>
-                <div class="flex between" @click="toDetialPage(nItem)">
-                  <span>{{ nItem.publishTime }}</span>
-                  <div class="flex around">
-                    <div class="mg-5 flex">
-                      <!-- <n-avatar :src="nItem.avatar" :size="18" round></n-avatar> -->
-                      <span>作者：{{ nItem.author }}</span>
-                    </div>
-                    <div class="mg-5 pointer flex" style="font-size: 16px;">
-                      <n-icon><ThumbsUpOutline/></n-icon>
-                      <span>{{ nItem.thumbs.length }}</span>
-                    </div>
-                    <div class="mg-5 pointer flex" style="font-size: 16px;">
-                      <n-icon><ChatboxEllipsesOutline/></n-icon>
-                      <span>{{ nItem.comments.length }}</span>
+            <n-card >
+              <n-thing :title="nItem.articleTitle">
+                <template #description>
+                  <div class="flex between" @click="toDetialPage(nItem)">
+                    <span>{{ nItem.publishTime }}</span>
+                    <div class="flex around">
+                      <div class="mg-5 flex">
+                        <!-- <n-avatar :src="nItem.avatar" :size="18" round></n-avatar> -->
+                        <span>作者：{{ nItem.author }}</span>
+                      </div>
+                      <div class="mg-5 pointer flex" style="font-size: 16px;">
+                        <n-icon><ThumbsUpOutline/></n-icon>
+                        <span>{{ nItem.thumbs.length }}</span>
+                      </div>
+                      <div class="mg-5 pointer flex" style="font-size: 16px;">
+                        <n-icon><ChatboxEllipsesOutline/></n-icon>
+                        <span>{{ nItem.comments.length }}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </template>
-              <template #footer>
-                <n-collapse>
-                  <template #arrow>
-                    <n-icon><Code></Code></n-icon>
-                  </template>
-                  <n-collapse-item title="显示代码" name="1">
-                    <div>
-                      <n-code :code="nItem.code" language="javascript" />
-                    </div>
-                  </n-collapse-item>
-                </n-collapse>
-              </template>
-            </n-thing>
+                </template>
+                <template #footer>
+                  <n-collapse>
+                    <template #arrow>
+                      <n-icon><Code></Code></n-icon>
+                    </template>
+                    <n-collapse-item title="显示代码" name="1">
+                      <div>
+                        <n-code :code="nItem.code" language="javascript" />
+                      </div>
+                    </n-collapse-item>
+                  </n-collapse>
+                </template>
+              </n-thing>
+            </n-card>
           </n-list-item>
         </n-list>
       </n-gi>
@@ -87,7 +90,10 @@
   </div>
 </template>
 <style scoped lang="scss">
-  .flex {
+  .n-list.n-list--bordered .n-list-item {
+    padding: 0px;
+  }
+.flex {
     display: flex;
     align-items: center;
   }
