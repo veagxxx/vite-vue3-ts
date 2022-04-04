@@ -1,8 +1,6 @@
 <script lang="ts" setup>
   import { articleList, IArticle } from '../utils/recommend'
-  import { ThumbsUpSharp, Code, ThumbsUpOutline, ChatboxEllipsesOutline } from '@vicons/ionicons5'
-  import { ThumbLike20Regular } from '@vicons/fluent'
-  import { CommentOutlined } from '@vicons/antd'
+  import { Code, ThumbsUpOutline, ChatboxEllipsesOutline } from '@vicons/ionicons5'
   import { Router, useRouter } from 'vue-router';
   import { onMounted, reactive, ref } from 'vue';
   import ArticleService, { IArticleResultData } from "@/api/ArticeService"
@@ -29,11 +27,15 @@
       phoneNo: "",
       publishTime: "",
       thumbs: []
-    }]
+    }],
   })
+  let isEmpty = ref<boolean>(true)
   onMounted(async () => {
     const res: any = await ArticleService.queryArticleList()
     articleData.queryList = res.data
+    if (res.data.length) {
+      isEmpty.value = false
+    }
     console.log('reszzz', articleData.queryList)
   })
 </script>
@@ -41,7 +43,12 @@
   <div class="article">
     <n-grid x-gap="14" y-gap="14" cols="1 400:1 600:1 800:1 900:2">
       <n-gi>
-        <n-list bordered style="margin: 0px;">
+        <n-empty v-if="isEmpty" description="你什么也找不到">
+          <template #extra>
+            <n-button size="small">空空如也</n-button>
+          </template>
+        </n-empty>
+        <n-list v-else bordered style="margin: 0px;">
           <n-list-item 
             v-for="(nItem, nIndex) in articleData.queryList" 
             :key="nIndex + 'at'"

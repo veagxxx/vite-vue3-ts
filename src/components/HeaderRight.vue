@@ -24,7 +24,7 @@
   let bgColor = ref<Array<string>>(['深色', '浅色'])
   let bgColorText = ref<string>(bgColor.value[0])
   let githubText = ref<string>('Github')
-  let githubLink = ref<string>('https://github.com/TuSimple/naive-ui')
+  let githubLink = ref<string>('https://github.com/veagxxx/vite-vue3-ts')
   let timer = ref<any>(null)
   // 主题切换
   const handleChangeTheme = () => {
